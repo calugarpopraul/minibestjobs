@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" maximum-scale="1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <title>{% block title %}Plata pe aplicanti{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+              integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
+        <link rel="icon" type="image/x-icon" href="https://ss.bestjobs.eu/favicon.ico"/>
+    {% endblock %}
+</head>
+
+<body id="id_body">
+{% block body %}
+
+    <!--
+    <div class="landing-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <a href="/ro/" class="logo-landing">
+                        <img src="https://ss.bestjobs.eu/img/bj-logo-blue.png" alt="bestjobs" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-lg-6 text-right" id="id_phone_number" style="color:#939292">
+                    Serviciu clienti: <a href="tel:(+40) 31 710 4224">(+40) 31 710 4224</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="landing-hero">
+        <div class="container">
+            <h1>HERO part</h1>
+        </div>
+    </div>
+    <div class="landing-content">
+        <div class="container">
+            <p>content</p>
+        </div>
+    </div>
+    <div class="landing-footer">
+        <div class="container">
+            <p>footer</p>
+        </div>
+    </div>
+
+    -->
+
+
+
+    <div class="container" id="id_box" style="">
+        <form method="post" action="base.html.twig">
+            <div class="panel panel-default" id="id_panel_def">
+                <div class="panel-heading">
+                    <!-- Panel Heading -->
+                    <nav class="navbar navbar-light bg-light" id="id_navbar">
+                        <a href="/ro/" class="logo-landing">
+                            <img src="https://ss.bestjobs.eu/img/bj-logo-blue.png" alt="bestjobs"
+                                 class="img-responsive">
+                        </a>
+
+                        <div class="phone_number"><a href="tel:(+40) 31 710 4224" id="id_phone_number"
+                                                     style="display:inline-block;margin-top:10px;margin-left:5px;color:#939292">
+                                Serviciu clienti: (+40) 31 710 4224
+                            </a></div>
+                    </nav>
+                    <!-- End Panel Heading -->
+                </div>
+                <div class="panel-body">
+                    <!-- Panel Body -->
+
+                    <span id="id_info_mid">
+                        <h4 id="id_question">De cati aplicanti ai nevoie?</h4>
+                        <p id="id_p1">Alege un anunt cu aplicanti garantati! Poti alege numarul de aplicanti, iar anuntul ramane valabil pe site pana ce acesta va fi atins. </p>
+                        <a class="btn btn-success" href="/ro/register?company=1" id="id_btn_succ">Creeaza-ti cont</a>
+                    </span>
+
+                    <img src="https://ss.bestjobs.eu/img/landing/ppa/main_hero_img_guy.png"
+                         class="img-responsive hidden-xs hidden-sm p-l-lg p-r-lg p-t-lg" id="id_img_om">
+
+                    <div class="container" id="id_prezentare_body_white">
+
+                        <div class="row" id="id_row_one">
+                            <a href="#id_prezentare_body_white">
+                                <div class="scroll-down-core text-center hidden-xs hidden-sm" id="id_scroll_down_btn">
+                                    <i class="fas fa-angle-down"
+                                       style="width:30px; height:30px; font-size:2.5em; margin-top:20px;"></i>
+                                </div>
+                            </a>
+
+                            <div class="col-md-5 col-md-offsset-1" id="id_col1_row1">
+                                <img src="https://ss.bestjobs.eu/img/landing/ppa/ic_guaranteed_aplicants1.png"
+                                     class="img-responsive" id="id_img_one">
+                                <h3 id="id_text_row1_col1">Ai aplicanti garantati</h3>
+                                <p id="id_p_row1_col1">Iti garantam numarul ales de aplicanti si platesti intre 1 si 7
+                                    credite/aplicant, in functie de job. Poti alege 10, 20, 30, 50, 100 sau 200
+                                    aplicanti garantati.</p>
+                            </div>
+
+                            <div class="col-md-5 col" id="id_col2_row1">
+                                <img src="https://ss.bestjobs.eu/img/landing/ppa/ic_guaranteed_aplicants2.png"
+                                     class="img-responsive" id="id_img_two">
+                                <h3 id="id_text_row1_col1">Adauga oricate locatii</h3>
+                                <p id="id_p1_row1_col1" style="margin-left:20%;text-align:center;">Fara restrictii -
+                                    recrutare din toate
+                                    orasele de interes </p>
+                            </div>
+
+                        </div>
+
+                        <div class="row" id="id_row_two">
+                            <div class="col-md-5" id="id_col1_row2">
+                                <img src="https://ss.bestjobs.eu/img/landing/ppa/ic_guaranteed_aplicants4.png"
+                                     class="img-responsive" id="id_img_one">
+                                <h3 id="id_text_row1_col1">Anuntul publicat are valabilitate nelimitata</h3>
+                                <p id="id_p_row1_col1">Anuntul ramane activ pe site pana atinge numarul ales de
+                                    aplicanti, indiferent de perioada</p>
+                            </div>
+
+                            <div class="col-md-5" id="id_col2_row1">
+                                <img src="https://ss.bestjobs.eu/img/landing/ppa/ic_guaranteed_aplicants5.png"
+                                     class="img-responsive" id="id_img_two">
+                                <h3 id="id_text_row1_col1">Fara costuri suplimentare</h3>
+                                <p id="id_p_row1_col1">Poti vizualiza datele de contact ale candidatilor fara costuri
+                                    suplimentare, din momentul in care au aplicat la anuntul tau.</p>
+                            </div>
+                        </div>
+
+                        <div class="row" id="id_row_three">
+                            <div class="col-md-5" id="id_col1_row3">
+                                <img src="https://ss.bestjobs.eu/img/landing/ppa/ic_guaranteed_aplicants6.png"
+                                     class="img-responsive" id="id_img_five">
+                                <h3 id="id_text_row3_col1">Primesti gratuit promovare in Social Media</h3>
+                                <p id="id_p_row3_col1">In cazul in care anuntul nu atinge numarul ales de aplicanti in
+                                    prima saptamana, acesta beneficiaza de promovare gratuita in Social Media. </p>
+                            </div>
+                        </div>
+
+
+                        <div class="row text-center" style="background-color: #f1f5fa" id="id_row4">
+                            <div class="col-md-5" id="id_col1_row3" style="padding-bottom: 30px;">
+                                <h3 id="id_text_row1_col1" style="color:black;">Alege plata pe aplicanti</h3>
+                                <img src="https://ss.bestjobs.eu/img/landing/ppa/bottom_headline_border.png"
+                                     class="m-b-sm" style="height: 5px;">
+                                <p id="id_p_row1_col1" style="text-align:center;color:black;">
+                                    Creeaza-ti cont de angajator si posteaza anuntul tau cu plata pe aplicanti.
+                                </p>
+
+                                <a class="btn btn-success" href="/ro/register?company=1" id="id_btn_succ">Creeaza-ti
+                                    cont</a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row" id="id_row_footer">
+                        <div class="col-lg-9 col-md-8 col-sm-10 col-xs-12 text-lg-right text-center" id="nav-container">
+                            <ul id="nav_list">
+                                <li>
+                                    <a href="/ro/hartasite/joburi" class="text-muted">
+                                        Site map
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://support.bestjobs.eu/hc/ro" target="_blank"
+                                       class="text-muted">Suport</a>
+                                </li>
+                                <li>
+                                    <a href="/ro/legal/terms" class="text-muted">
+                                        Conditii
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/ro/legal/confidentiality" class="text-muted">
+                                        Confidentialitate
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/ro/company/offer#About" class="text-muted"
+                                       onclick="$('.tab-link[href=\'#About\']', '#offerTypes').click()">
+                                        Despre noi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://blog.bestjobs.eu/?lang=ro" target="_blank" class="text-muted">
+                                        Blog
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="btn-group dropup" id="id_language_button">
+                            <a href="#" class="btn navbar-btn dropdown-toggle text-muted" data-toggle="dropdown"
+                               id="id_language_btn_link">
+                                <img src="https://ss.bestjobs.eu/img/flags/ro.png" class="flag">
+                                RO
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="text-lg-left text-center">
+                                    <a href="https://www.bestjobs.eu/en/landing/aplicanti-garantati"
+                                       data-toggle="tooltip" data-placement="left" title=""
+                                       data-original-title="engleză">
+                                        <img src="https://ss.bestjobs.eu/img/flags/en.png" class="flag">
+                                        <small>EN</small>
+                                    </a>
+                                </li>
+                                <li class="text-lg-left text-center">
+                                    <a href="https://www.bestjobs.eu/pl/landing/aplicanti-garantati"
+                                       data-toggle="tooltip" data-placement="left" title=""
+                                       data-original-title="poloneză">
+                                        <img src="https://ss.bestjobs.eu/img/flags/pl.png" class="flag">
+                                        <small>PL</small>
+                                    </a>
+                                </li>
+                                <li class="text-lg-left text-center">
+                                    <a href="https://www.bestjobs.eu/hu/landing/aplicanti-garantati"
+                                       data-toggle="tooltip" data-placement="left" title=""
+                                       data-original-title="maghiară">
+                                        <img src="https://ss.bestjobs.eu/img/flags/hu.png" class="flag">
+                                        <small>HU</small>
+                                    </a>
+                                </li>
+                                <li class="text-lg-left text-center">
+                                    <a href="https://www.bestjobs.eu/it/landing/aplicanti-garantati"
+                                       data-toggle="tooltip" data-placement="left" title=""
+                                       data-original-title="italiană">
+                                        <img src="https://ss.bestjobs.eu/img/flags/it.png" class="flag">
+                                        <small>IT</small>
+                                    </a>
+                                </li>
+                                <li class="text-lg-left text-center">
+                                    <a href="https://www.bestjobs.eu/de/landing/aplicanti-garantati"
+                                       data-toggle="tooltip" data-placement="left" title=""
+                                       data-original-title="germană">
+                                        <img src="https://ss.bestjobs.eu/img/flags/de.png" class="flag">
+                                        <small>DE</small>
+                                    </a>
+                                </li>
+                                <li class="text-lg-left text-center">
+                                    <a href="https://www.bestjobs.eu/fr/landing/aplicanti-garantati"
+                                       data-toggle="tooltip" data-placement="left" title=""
+                                       data-original-title="franceză">
+                                        <img src="https://ss.bestjobs.eu/img/flags/fr.png" class="flag">
+                                        <small>FR</small>
+                                    </a>
+                                </li>
+                                <li class="text-lg-left text-center">
+                                    <a href="https://www.bestjobs.eu/sr/landing/aplicanti-garantati"
+                                       data-toggle="tooltip" data-placement="left" title="" data-original-title="sârbă">
+                                        <img src="https://ss.bestjobs.eu/img/flags/sr.png" class="flag">
+                                        <small>SR</small>
+                                    </a>
+                                </li>
+                                <li class="text-lg-left text-center">
+                                    <a href="https://www.bestjobs.eu/es/landing/aplicanti-garantati"
+                                       data-toggle="tooltip" data-placement="left" title=""
+                                       data-original-title="spaniolă">
+                                        <img src="https://ss.bestjobs.eu/img/flags/es.png" class="flag">
+                                        <small>ES</small>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-xs-12 text-lg-right text-center" id="id_social_media_col">
+                        <div class="btn-group btn-group-sm social-buttons" id="id_social_media_btn">
+                            <a href="http://twitter.com/BestJobsRo" target="_blank" class="btn btn-twitter navbar-btn"
+                               data-toggle="tooltip" title="" data-original-title="Urmareste-ne pe Twitter"
+                               id="id_social_media_links">
+                                <i class="fab fa-fw fa-lg fa-twitter"></i>
+                            </a>
+                            <a href="http://www.youtube.com/user/BestJobsRecrutare" target="_blank"
+                               class="btn btn-youtube navbar-btn" data-toggle="tooltip" title=""
+                               data-original-title="Urmareste-ne pe YouTube" id="id_social_media_links">
+                                <i class="fab fa-fw fa-lg fa-youtube-square"></i>
+                            </a>
+                            <a href="https://www.facebook.com/BestJobs" target="_blank"
+                               class="btn btn-facebook navbar-btn" data-toggle="tooltip" title=""
+                               data-original-title="Urmareste-ne pe Facebook" id="id_social_media_links">
+                                <i class="fab fa-fw fa-lg fa-facebook-square"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/bestjobs" target="_blank"
+                               class="btn btn-linkedin navbar-btn" data-toggle="tooltip" title=""
+                               data-original-title="Urmareste-ne pe Linkedin" id="id_social_media_links">
+                                <i class="fab fa-fw fa-lg fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- End Panel Body -->
+
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <button type="button" class="btn btn-primary toTop affix">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+
+
+
+
+{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+
+</html>

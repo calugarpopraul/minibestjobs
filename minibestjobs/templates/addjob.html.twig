@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> Adauga job</title>
+    {% block stylesheets %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/addjob.css">
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+
+    <div class="header" id="id_header">
+        <!-- Navbar && Logo -->
+
+        <header class="main-header" id="id_main_header">
+            <div class="header-top">
+                <img src="https://ss.bestjobs.eu/img/bestjobs-logo.png" alt="Bestjobs" id="id_logo">
+
+                <ul class="nav-list">
+                    <li class="li-navbar-top">
+                        Jobs
+                    </li>
+                    <li class="li-navbar-top">
+                        Go
+                    </li>
+                    <li class="li-navbar-top">
+                        Play
+                    </li>
+                    <li class="li-navbar-top">Ratings</li>
+                    <li class="li-navbar-top">
+                        Talents
+                    </li>
+                </ul>
+
+                <button type="button" class="btn btn-success" id="id_btn_success_top">Log in</button>
+
+                <i class="fas fa-plus" id="id_plus_btn"></i>
+
+            </div>
+            <!-- End Header -->
+        </header>
+
+
+        <!-- End Navbar && Logo -->
+    </div>
+
+    <div id="container" class="container">
+
+
+        <div id="headerJob" class="container">
+
+            <div id="btn" class="btn">
+
+            </div>
+
+
+        </div>
+
+        <div class="container m-t-lg" id="id_container_form">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_label(form.title) }}
+                </div>
+                <div class="col-md-12" id="id_input_area">
+                    {{ form_widget(form.title, {'attr': {'class': 'col-md-12', 'required':false}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_label(form.description) }}
+                </div>
+                <div class="col-md-12">
+                    {{ form_widget(form.description, {'attr': {'class': 'col-md-12'}}) }}
+                </div>
+            </div>
+            {# <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ form_label(form.salariumin) }}
+                        </div>
+                        <div class="col-md-12">
+                            {{ form_widget(form.salariumin, {'type':'number', 'attr': {'class': 'col-md-12', 'placeholder': 'Aici bagi cati bani vrei minim'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ form_label(form.salariumax) }}
+                        </div>
+                        <div class="col-md-12">
+                            {{ form_widget(form.salariumax, {'attr': {'class': 'col-md-12'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>#}
+
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_label(form.location) }}
+                </div>
+                <div class="col-md-12">
+                    {{ form_widget(form.location, {'attr': {'class': 'col-md-12'}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 offset-md-10">
+                    <button class="btn btn-lg btn-success" id="id_submit_btn" type="submit">Save</button>
+                </div>
+
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+        <script>
+            /* $(document).ready(function(){
+                 $("#butonuldesubmit").click(function(){
+                     $(".vreausadisparaasta").hide();
+                 });
+             });*/
+        </script>
+
+
+    </div>
+
+
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/database/vendor/composer" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/reflection" />
+      <path value="$PROJECT_DIR$/database/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/database/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/database/vendor/symfony/console" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
+</project>
