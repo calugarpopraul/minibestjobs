@@ -11,8 +11,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\JobRepository")
  */
+
 class Job
 {
     /**
@@ -37,7 +38,7 @@ class Job
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string")in
      */
     private $location;
 
@@ -49,7 +50,7 @@ class Job
 
     public function __construct()
     {
-        $this->slug = md5(rand(1,99999));
+        $this->slug = md5(rand(1, 99999));
     }
 
     public function getId(): ?int

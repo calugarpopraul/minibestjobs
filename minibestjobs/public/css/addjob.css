@@ -75,6 +75,8 @@ body{
 
 #job_title{
     height:35px;
+    font-size: 20px;
+    color:grey;
     background-color:#ffffff;
     border: 1px solid;
     border-color: lightgray;
@@ -83,12 +85,16 @@ body{
 
 #job_description{
     height:35px;
+    font-size: 20px;
+    color:grey;
     background-color:#ffffff;
     border: 1px solid;
     border-color: lightgray;
 }
 
 #job_location{
+    font-size: 20px;
+    color:grey;
     height:35px;
     background-color:#ffffff;
     border: 1px solid;

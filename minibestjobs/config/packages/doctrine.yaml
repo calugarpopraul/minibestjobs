@@ -16,7 +16,7 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
         default_connection: default
         user: root
-        password: null
+        password: root
         unix_socket: /tmp/mysql.sock
         port: 3306
         dbname: bestjobs

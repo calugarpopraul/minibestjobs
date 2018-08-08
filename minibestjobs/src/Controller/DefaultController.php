@@ -19,11 +19,11 @@ class DefaultController extends AbstractController
     /**
      * @Route("/homepage")
      */
-    public function indexAction(){
-        return $this->render('homepage.html.twig',[
+    public function indexAction()
+    {
+        return $this->render('homepage.html.twig', [
         ]);
     }
-
 
 
 }
