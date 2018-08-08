@@ -48,9 +48,9 @@ body {
 }
 
 #id_btn_success_top {
-    margin-top: -65px;
+    margin-top: 10px;
     left: 98%;
-    margin-right: 5px;
+    margin-right: 10px;
     display: block;
     float: right;
 }
@@ -59,8 +59,8 @@ body {
     float: right;
     color: white;
     display: block;
-    margin-right: 100px;
-    margin-top: -50px;
+    margin-right: 15px;
+    margin-top: 20px;
 }
 
 #id_container_form {
@@ -129,7 +129,120 @@ input {
 #id_search_btn {
     width: 50px;
     height: 40px;
-    margin-top: -65px;
-    margin-left: 650px;
+    margin-top: 10px;
+    margin-left: 500px;
 }
 
+p{
+    font-family:"Open Sans", Helvetica, Arial, sans-serif;
+}
+
+#id_row_footer{
+    width: 100%;
+    height:60px;
+    left:0;
+    right:0;
+    background-color: #ffffff;
+    border-top:2px dotted lightgray;
+}
+
+#nav-container{
+    width: 30%;
+    height:60px;
+    float:left;
+    text-align: center;
+    padding-left:10%;
+
+}
+
+#nav_list{
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    display: inline;
+    width: 500px;
+    height: 60px;
+    font-size: 16px;
+    color:#333;
+    margin-left: 15%;
+}
+
+li{
+    display: inline;
+    color:#939292;
+    float:left;
+    height: 60px;
+    width: auto;
+    margin-padding:20px;
+}
+
+li:hover{
+    color:grey;
+    background-color: #eaeaea;
+}
+
+.text-muted{
+    display:block;
+    text-align: center;
+    padding-top:20px;
+    margin-left:20px;
+    margin-right: 20px;
+}
+
+#id_language_button{
+    height:60px;
+    width: 60px;
+    margin-top:-10px;
+}
+
+#id_language_btn_link{
+    width: inherit;
+    height: inherit;
+}
+
+#id_social_media_col{
+    width: 250px;
+    height:60px;
+    display:block;
+    margin-top:-55px;
+    margin-right:180px;
+    float:right;
+}
+
+#id_social_media_links{
+    display: block;
+    padding-top:20px;
+    float:right;
+
+}
+
+#id_input_area{
+    background-color: #ffffff;
+}
+
+
+#id_row_footer{
+    width: 100%;
+    height:60px;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: #ffffff;
+    border-top:2px dotted lightgray;
+}
+
+#id_dropdownMenuButton{
+    background-color: white;
+    color:#999;
+    width: 90px;
+    height:60px;
+}
+
+#id_drop_img{
+    width: 40px;
+    height:40px;
+}
+
+.open > .dropdown-menu {
+    display: block;
+    background-color: white;
+    height:auto;
+}

@@ -13,94 +13,111 @@
               integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
               crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+
         <link rel="stylesheet" type="text/css" href="{{ asset('css/list.css') }}">
         <link rel="icon" type="image/x-icon" href="https://ss.bestjobs.eu/favicon.ico"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
     {% endblock %}
 </head>
-<body>
+<body id="id-body">
 {% block body %}
-    <div class="header" id="id_header">
-        <!-- Navbar && Logo -->
 
-        <header class="main-header" id="id_main_header">
-            <div class="header-top">
-                <div class="row">
-                    <div class="col-md-3 col-xs-12">
-                        <a href="{{ path('app_job_list') }}">
-                            <img src="https://ss.bestjobs.eu/img/bestjobs-logo.png" alt="Bestjobs" id="id_logo">
-                        </a>
+        <div class="header" id="id_header">
+            <!-- Navbar && Logo -->
+
+            <header class="main-header" id="id_main_header">
+                <div class="header-top">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-12">
+                            <a href="{{ path('app_job_list') }}">
+                                <img src="https://ss.bestjobs.eu/img/bestjobs-logo.png" alt="Bestjobs" id="id_logo">
+                            </a>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12">
+                            {{ form_start(form, {'action': path('app_job_keyword', {'keyword' : keyword}), 'method': 'POST', 'attr': {'id':'search'}}) }}
+                            {{ form_widget(form.keyword, {'attr' : {'style' : ''}}) }}
+
+                            <button type="submit" class="btn btn-success" id="id_search_btn"><i
+                                        class="fa fa-search"></i>
+                            </button>
+                            {{ form_end(form) }}
+                        </div>
+
+                        <!--
+                        <form action="" method="post">
+                            <input type="text" name="search" placeholder="Cuvant cheie">
+                            <button type="submit" name="search_btn" id="id_search_btn" class="btn btn-success"><i
+                                        class="fas fa-search"></i></button>
+                        </form>
+                        -->
+                        <div class="col-md-3 col-xs-12">
+                            <button type="button" class="btn btn-success" id="id_btn_success_top">Log in</button>
+
+                            <i class="fas fa-plus" id="id_plus_btn"></i>
+                        </div>
+
                     </div>
+                </div>
+                <!-- End Header -->
+            </header>
 
-                    <div class="col-md-6 col-xs-12">
-                        {{ form_start(form, {'action': path('app_job_keyword', {'keyword' : keyword}), 'method': 'POST', 'attr': {'id':'search'}}) }}
-                        {{ form_widget(form.keyword, {'attr' : {'style' : ''}}) }}
 
-                        <button type="submit" class="btn btn-success" id="id_search_btn"><i class="fa fa-search"></i>
-                        </button>
-                        {{ form_end(form) }}
-                    </div>
+            <!-- End Navbar && Logo -->
+        </div>
 
-                    <!--
-                    <form action="" method="post">
-                        <input type="text" name="search" placeholder="Cuvant cheie">
-                        <button type="submit" name="search_btn" id="id_search_btn" class="btn btn-success"><i
-                                    class="fas fa-search"></i></button>
-                    </form>
-                    -->
-                    <div class="col-md-3 col-xs-12">
-                    <button type="button" class="btn btn-success" id="id_btn_success_top">Log in</button>
+        <div id="container" class="container">
 
-                    <i class="fas fa-plus" id="id_plus_btn"></i>
-                    </div>
+
+            <div id="headerJob" class="container">
+
+
+                <div class="row" id="id_row_list">
+                    {% for job in jobs %}
+                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" id="id_cols{{ loop.index }}" style="background-color: white; margin-top:30px;
+border:3px solid #e5e5e5; margin-right:10px"
+                             style="border: 1px solid black">
+                            <div class="panel-default">
+                                <div class="panel-heading">
+                                    <p style="color: #1264c6;font-size:24px;"><strong>{{ job.title }}</strong></p>
+                                </div>
+                                <div class="panel-body">
+                                    <p style="height:70px;overflow:hidden;color:#999;font-size: 18px;">{{ job.description }}</p>
+                                </div>
+                                <div class="panel-footer"
+                                     style="color:dodgerblue; margin-top:-20px;padding-bottom:20px;">
+                                    <i class="fa fa-map-marker-alt"></i> {{ job.location }}</div>
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
 
                 </div>
-            </div>
-            <!-- End Header -->
-        </header>
-
-
-        <!-- End Navbar && Logo -->
-    </div>
-
-    <div id="container" class="container">
-
-
-        <div id="headerJob" class="container">
-
-
-            <div class="row" id="id_row_list">
-                {% for job in jobs %}
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" id="id_cols{{ loop.index }}"
-                         style="border: 1px solid red">
-                        <p>{{ job.title ~ ' - ' ~ job.description  ~ ' - ' ~ job.location }}</p><br>
-                    </div>
-
-                {% endfor %}
 
             </div>
+
+            <script>
+                /* $(document).ready(function(){
+                     $("#butonuldesubmit").click(function(){
+                         $(".vreausadisparaasta").hide();
+                     });
+                 });*/
+            </script>
 
         </div>
 
-        <div id="id_content" class="container">
-            <div class="row" id="id_row">
-
-            </div>
-        </div>
 
 
-        <script>
-            /* $(document).ready(function(){
-                 $("#butonuldesubmit").click(function(){
-                     $(".vreausadisparaasta").hide();
-                 });
-             });*/
-        </script>
+    {% include 'footer.html.twig' %}
 
-
-    </div>
 
 
 {% endblock %}
-{% block javascripts %}{% endblock %}
+
 </body>
 </html>

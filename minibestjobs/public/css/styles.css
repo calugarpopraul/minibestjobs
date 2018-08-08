@@ -243,11 +243,13 @@ html{
     width: 75%;
     float:left;
     text-align: center;
+    padding-left:10%;
 
 }
 
 #nav_list{
     font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    display: inline;
     width: 500px;
     height: 60px;
     font-size: 16px;
