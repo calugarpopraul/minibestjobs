@@ -9,21 +9,36 @@
 namespace App\Controller;
 
 
+use App\Entity\User;
 use App\Form\UserRegistrationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends Controller
 {
     /**
      * @Route("/register",name="user_register")
      */
-    public function registerAction(Request $request){
+    public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder){
 
-        $form = $this->createForm(UserRegistrationType::class);
+
+        $user = new User();
+        $form = $this->createForm(UserRegistrationType::class,$user);
 
         $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            //encode password
+
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+
+            //save user
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+        }
 
 
 

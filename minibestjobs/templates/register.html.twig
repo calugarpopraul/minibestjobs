@@ -25,18 +25,17 @@
     </a>
 
     <div class="container m-t-lg">
-        <div class="col-md-4 col-md-offset-4 col-sm-6col-sm-offset-3 col-xs-10 col-xs-offset-1">
-            <div class="text-center">
-            </div>
+        <div class="col-md-12 col-md-offset-6 col-sm-6col-sm-offset-3 col-xs-10 col-xs-offset-1">
             <div class="panel-default">
                 <div class="panel-body">
-                    <form method="post" action="homepage.html.twig">
+                    <form method="post" action="{{ path('user_register') }}">
                         {{ form_start(form) }}
                         <p>Join us now, it's easy</p>
                             {{ form_row(form.email) }}
                             {{ form_row(form.password) }}
 
-                             <button type="submit" class="btn btn-primary" formnovalidate>Register</button>
+                             <button type="submit" class="btn btn-success" formnovalidate>Register</button>
+                        <p style="font-size: 14px">By registering you are accepting the <a href="/en/legal/confidentiality" target="_blank">terms and conditions</a> of the site. </p>
                         {{ form_end(form) }}
                     </form>
                 </div>

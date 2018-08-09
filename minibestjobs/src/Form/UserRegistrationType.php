@@ -24,14 +24,28 @@ class UserRegistrationType extends AbstractType
     {
 
         $builder
-            ->add('email',EmailType::class)
-            ->add('password',PasswordType::class);
+            ->add('email',EmailType::class,
+                [
+                    'attr'=>[
+                        'id'=>'email',
+                        'placeholder'=>'Email'
+                    ],
+                'label'=>false,
+                'invalid_message' => 'email in use'
+            ])
+            ->add('password',PasswordType::class,[
+                'attr'=>[
+                    'id'=>'password',
+                    'placeholder'=>'Password'
+                ],
+                'label'=>false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class'=>User::class,
+            'data_class'=> 'App\Entity\User',
         ));
     }
 
