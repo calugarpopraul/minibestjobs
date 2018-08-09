@@ -1,0 +1,17 @@
+body{
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size:14px;
+    color: #333;
+    background-color: #F5F5F5;
+}
+
+.container{
+    width:735px;
+    display:block;
+    margin-left:35%;
+    background-color: white;
+}
+
+.brand{
+
+}
