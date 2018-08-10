@@ -3,13 +3,17 @@ security:
           App\Entity\User: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        our_users:
+            entity: {class: App\Entity\User,propriety: email}
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+            guard:
+                authenticators:
+                    - app.security.login_form_authenticator
 
             # activate different ways to authenticate
 

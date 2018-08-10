@@ -31,6 +31,7 @@ class JobController extends Controller
     public function addAction(Request $request)
     {
 
+        $user = $this->getUser();
         $form = $this->createForm(JobType::class, null);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

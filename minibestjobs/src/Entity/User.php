@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -34,6 +35,35 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=100)
      */
     private $password;
+
+    /**
+     *
+     * @var ArrayCollection | Job
+     * @ORM\OneToMany(targetEntity="Job", mappedBy="user")
+     *
+     *
+     */
+    private $job;
+
+    /**
+     * @return Job|ArrayCollection
+     */
+    public function getJob()
+    {
+
+        return $this->job;
+    }
+
+    /**
+     * @param Job|ArrayCollection $job
+     */
+    public function setJob($job): void
+    {
+        $this->job = $job;
+    }
+
+
+
 
     public function getId()
     {
@@ -82,7 +112,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
     }
 
     /**

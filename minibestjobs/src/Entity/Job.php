@@ -48,6 +48,30 @@ class Job
      */
     private $slug;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="job")
+     *
+     */
+    private $user;
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+
+
     public function __construct()
     {
         $this->slug = md5(rand(1, 99999));

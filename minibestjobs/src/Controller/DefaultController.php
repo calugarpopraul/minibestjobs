@@ -17,7 +17,7 @@ class DefaultController extends AbstractController
 {
 
     /**
-     * @Route("/homepage")
+     * @Route("/homepage", name="app_homepage")
      */
     public function indexAction()
     {
