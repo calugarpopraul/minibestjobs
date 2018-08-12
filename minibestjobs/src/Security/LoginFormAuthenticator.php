@@ -25,20 +25,19 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 {
 
     private $formFactory;
-    private $em;
     private $router;
 
-//    public function __construct(FormFactoryInterface $formFactory, EntityManager $em,RouterInterface $router)
-//    {
-//        $this->formFactory = $formFactory;
-//
-//        $this->em = $em;
-//        $this->router = $router;
-//    }
+    public function __construct(FormFactoryInterface $formFactory,RouterInterface $router)
+    {
+        $this->formFactory = $formFactory;
+
+        $this->router = $router;
+    }
 
     public function supports(Request $request)
     {
         // TODO: Implement supports() method.
+
     }
 
     public function getCredentials(Request $request)
@@ -46,7 +45,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         $isLoginSubmit = $request->getPathInfo()=='/login' && $request->isMethod('POST');
 
         if(!$isLoginSubmit){
-            return;
+            return null;
         }
 
         $form=$this->formFactory->create(LoginForm::class);
@@ -61,8 +60,9 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     {
         $username = $credentials['_username'];
 
-        return $this->em->getRepository('App/Entity/User')
-            ->findOneBy(['email'=>$username]);
+
+        return $userProvider->loadUserByUsername($username);
+
     }
 
     public function checkCredentials($credentials, UserInterface $user)
