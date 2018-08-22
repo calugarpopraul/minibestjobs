@@ -24,20 +24,34 @@ class UserController extends Controller
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder){
 
 
+        //build the form
         $user = new User();
-        $form = $this->createForm(UserRegistrationType::class,$user);
+        $form = $this->createForm(UserRegistrationType::class, $user);
 
+        //handle the submit on POST
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
-            //encode password
 
-            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            //encode password
+            $password = $passwordEncoder->encodePassword($user,$user->getPassword());
             $user->setPassword($password);
+
+
+//            $encoder = $this->get('security.password_encoder');
+//            $password = $encoder->encodePassword($user, $user->getPassword());
+//            $user->setPassword($password);
+
+
+            //Set their role
+            $user->setRole('ROLE_USER');
 
             //save user
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+
+
+            return $this->redirectToRoute('app_login');
         }
 
 

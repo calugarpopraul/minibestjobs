@@ -56,7 +56,7 @@
 
 
 
-    <div class="container" id="id_box" style="">
+    <div class="container-fluid ppa-bg p-t-sm p-b-lg" id="id_box" style="">
         <form method="post" action="base.html.twig">
             <div class="panel panel-default" id="id_panel_def">
                 <div class="panel-heading">
@@ -80,7 +80,7 @@
                     <span id="id_info_mid">
                         <h4 id="id_question">De cati aplicanti ai nevoie?</h4>
                         <p id="id_p1">Alege un anunt cu aplicanti garantati! Poti alege numarul de aplicanti, iar anuntul ramane valabil pe site pana ce acesta va fi atins. </p>
-                        <a class="btn btn-success" href="/ro/register?company=1" id="id_btn_succ">Creeaza-ti cont</a>
+                        <a class="btn btn-success" href="{{ path('user_register') }}" id="id_btn_succ">Creeaza-ti cont</a>
                     </span>
 
                     <img src="https://ss.bestjobs.eu/img/landing/ppa/main_hero_img_guy.png"

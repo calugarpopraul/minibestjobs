@@ -10,20 +10,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity("email")
+ * @UniqueEntity(fields="email", message="This email adress is already in use")
  *
  */
 class User implements UserInterface
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true, length=50)
+     * @ORM\Column(type="string", unique=true, length=255)
      * @Assert\Email()
      * @Assert\NotBlank()
      * @Assert\Length(min="6")
@@ -37,8 +37,12 @@ class User implements UserInterface
     private $password;
 
     /**
+     * @ORM\Column(type="string",length=50)
+     */
+    private $role;
+
+    /**
      *
-     * @var ArrayCollection | Job
      * @ORM\OneToMany(targetEntity="Job", mappedBy="user")
      *
      *
@@ -57,7 +61,7 @@ class User implements UserInterface
     /**
      * @param Job|ArrayCollection $job
      */
-    public function setJob($job): void
+    public function setJob($job)
     {
         $this->job = $job;
     }
@@ -137,6 +141,16 @@ class User implements UserInterface
         // TODO: Implement getUsername() method.
     }
 
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function setRole($role = null)
+    {
+        $this->role = $role;
+    }
+
     /**
      * Removes sensitive data from the user.
      *
@@ -147,4 +161,5 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
 }

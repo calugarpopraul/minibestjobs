@@ -8,82 +8,120 @@
 
 namespace App\Security;
 
-use App\Form\LoginForm;
-use App\Entity\User;
-use Doctrine\ORM\EntityManager;
-use Symfony\Component\Form\FormFactoryInterface;
+
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Security\Core\Exception\BadCredentialsException;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 {
-
-    private $formFactory;
     private $router;
+    private $encoder;
+    private $security;
 
-    public function __construct(FormFactoryInterface $formFactory,RouterInterface $router)
+    public function __construct(RouterInterface $router,UserPasswordEncoderInterface $encoder,
+        Security $security)
     {
-        $this->formFactory = $formFactory;
-
         $this->router = $router;
-    }
-
-    public function supports(Request $request)
-    {
-        // TODO: Implement supports() method.
-
+        $this->encoder = $encoder;
+        $this->security = $security;
     }
 
     public function getCredentials(Request $request)
     {
-        $isLoginSubmit = $request->getPathInfo()=='/login' && $request->isMethod('POST');
+        $login_array = $request->request->get('login_form');
+        $email = $login_array['_username'];
+        $password = $login_array['_password'];
+        if(!empty($email)){
+            $request->getSession()->set(Security::LAST_USERNAME, $request->get('_username'));
 
-        if(!$isLoginSubmit){
-            return null;
+            return array(
+                'username'=>$email,
+                'password'=>$password
+            );
         }
-
-        $form=$this->formFactory->create(LoginForm::class);
-        $form->handleRequest($request);
-        $data = $form->getData();
-
-        return $data;
+        return [];
 
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        $username = $credentials['_username'];
 
+        if(empty($credentials)){
+            return null;
+        }
+        $email = null;
+        if(array_key_exists('username',$credentials)){
+            $email = $credentials['username'];
 
-        return $userProvider->loadUserByUsername($username);
+        }
+        if(null === $email || empty($email)){
+            return null;
+        }
+        $user = $userProvider->loadUserByUsername($email);
 
+        return $user;
     }
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        $password = $credentials['_password'];
-
-        if($password=='iliketurtles'){
+        $plainPassword = $credentials['password'];
+        if ($this->encoder->isPasswordValid($user, $plainPassword)) {
             return true;
         }
 
-        return false;
+        throw new BadCredentialsException();
     }
 
     protected function getLoginUrl()
     {
-        return $this->router->generate('security_login');
+        return $this->router->generate('app_login');
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
+        $url = $this->router->generate('app_homepage');
+
+        return new RedirectResponse($url);
+    }
+
+    public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
+    {
+        $request->getSession()->set(Security::AUTHENTICATION_ERROR, $exception);
+
+        $url = $this->router->generate('app_login');
+
+        return new RedirectResponse($url);
+    }
+
+    protected function getDefaultSuccessRedirectUrl()
+    {
         return $this->router->generate('app_homepage');
+    }
+
+    public function supports(Request $request)
+    {
+        $isLoginSubmit = $request->getPathInfo()===$this->router->generate('app_login')
+            && $request->isMethod('POST');
+
+        if(!$isLoginSubmit){
+            return [];
+        }
+
+        if($this->security->getUser()){
+            return false;
+        }
+
+        return true;
+
     }
 
 

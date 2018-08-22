@@ -4,7 +4,7 @@ security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         user_db:
-          entity: { class: App\Entity\User}
+          entity: { class: App:User, property: email}
 
     firewalls:
         dev:
@@ -14,8 +14,11 @@ security:
             anonymous: ~
             guard:
                 authenticators:
-                    - app.security.login_form_authenticator
+                    class: app.security.login_form_authenticator
 
+            logout:
+                path: /logout
+                target: /login
             # activate different ways to authenticate
 
             # http_basic: true
